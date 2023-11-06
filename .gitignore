@@ -1,3 +1,8 @@
+# JetBrains products
+.idea
+
+# Private variables
 env.sh
 
+# Downloads directory for cache and videos
 /downloads
