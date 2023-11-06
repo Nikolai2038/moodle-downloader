@@ -52,7 +52,7 @@ function download_file_or_use_cached() {
   variables_must_be_specified "is_disable_cache" "cache_directory" "link" || return "$?"
 
   local file_name
-  file_name="$(echo "${link}" | sed -E 's/[^A-Za-z0-9\-_]/_/g')" || return "$?"
+  file_name="$(echo "${link}" | sed -E 's/[^A-Za-z0-9_]/_/g')" || return "$?"
   local file_path="${cache_directory}/${file_name}"
 
   # Download course page if not already downloaded
