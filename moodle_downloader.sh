@@ -43,6 +43,7 @@ source "./scripts/xpath/get_node_attribute_value.sh" || exit "$?"
 source "./scripts/xpath/get_nodes_count.sh" || exit "$?"
 source "./scripts/xpath/get_xml_content.sh" || exit "$?"
 source "./scripts/curl/download_file_or_use_cached.sh" || exit "$?"
+source "./scripts/package/install_command.sh" || exit "$?"
 
 # (REUSE) Prepare after imports
 {
@@ -108,6 +109,8 @@ function get_text_for_filename() {
 
 # Start main script of Automata Parser
 function moodle_downloader() {
+  install_command "xpath" "libxml-xpath-perl" || return "$?"
+
   if [ ! -d "${DOWNLOADS_DIRECTORY}" ]; then
     mkdir "${DOWNLOADS_DIRECTORY}" || return "$?"
   fi
