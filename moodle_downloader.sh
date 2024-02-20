@@ -96,6 +96,7 @@ function get_body() {
   course_page_content_body="$(echo "${course_page_content_body}" | sed -E 's/data-category="[^"]+"//g')" || return "$?"
   course_page_content_body="$(echo "${course_page_content_body}" | sed -E 's/(")(type="video)/\1 \2/g')" || return "$?"
   course_page_content_body="$(echo "${course_page_content_body}" | sed -E 's/&forceview=1//g')" || return "$?"
+  course_page_content_body="$(echo "${course_page_content_body}" | sed -E 's#<script>.*?</script>##g')" || return "$?"
 
   echo "${course_page_content_body}"
 
